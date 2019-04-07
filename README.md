@@ -1,20 +1,25 @@
-#### Build Locally
-```$xslt
-./sbt dist
-docker build -t abhinavrungta/mirror-coding-challenge .
-docker push abhinavrungta/mirror-coding-challenge
-```
-
-#### Run Locally
-Run via SBT `./sbt run`
-
-Run via Docker
+#### Run Via Compose
 ```$xslt
 docker pull abhinavrungta/mirror-coding-challenge
+docker-compose up
+```
+
+#### Run Locally via SBT
+```$xslt
+./sbt dist
+./sbt run
+```
+
+#### Docker Build and Push
+Run via Docker
+```$xslt
+./sbt run
+docker build -t abhinavrungta/mirror-coding-challenge .
+docker push abhinavrungta/mirror-coding-challenge
 docker run -it -p 9000:9000 abhinavrungta/mirror-coding-challenge
 ```
 
-Local Endpoint `localhost:9000`
+### Endpoints
 
 #### Login User
 ```$xslt
@@ -40,14 +45,14 @@ Response
 - Client should subscribe to channel (user:user1) after login and register a listener.
 - All subsequent requests to backend endpoint must be authenticated with given token. 
 
-List Users
+#### List Users
 ```
 curl -X GET \
   http://localhost:9000/v1/listUsers \
   -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJNaXJyb3IiLCJpZCI6ImFiaGkiLCJleHAiOjE1NTQ2NTkwODV9.5AJzocx2U4loMXZ3sOIoSUeI8YQYysq8VtbLTbP6Zw4'
 ```
 
-List Groups
+#### List Groups
 ```
 curl -X GET \
   http://localhost:9000/v1/user1/listGroups \

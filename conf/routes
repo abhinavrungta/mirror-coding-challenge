@@ -1,0 +1,13 @@
+# Routes
+
++ noJwtFilter
+GET     /                           controllers.HomeController.index()
+
++ noJwtFilter
+POST    /v1/login                   controllers.HomeController.login()
+
+GET     /v1/listUsers               controllers.HomeController.listUsers()
+
+GET     /v1/:userId/listGroups      controllers.HomeController.listGroups(userId: String)
+
+POST    /v1/:userId/createGroup     controllers.HomeController.createGroup(userId: String)
